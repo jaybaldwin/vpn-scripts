@@ -1,2 +1,3 @@
-# vpn-whc
-Command-line scripts for connecting to a preconfigured VPN of World Harvest Church.
+# vpn-scripts
+
+Connecting to a preconfigured VPN.

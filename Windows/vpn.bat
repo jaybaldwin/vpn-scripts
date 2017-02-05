@@ -45,13 +45,6 @@ For %%A in ("%SCRIPT_NAME%") do (
     SET SCRIPT_NAME=%%~nxA
 )
 
-
-:: Set global variables for IPaddy and lenIP.   
-:: We use this to initially determine if the VPN is active.
-call :getConnectionIP CONNECTION_NAME IPaddy
-call :strlen lenIP IPaddy
-
-
 :: Process arguments
 IF [%1] == [] (
 	GOTO vpn_help
@@ -69,6 +62,11 @@ IF [%CONNECTION_NAME%] == [] (
 	echo [ERROR] No VPN_name specified. Exiting...
 	goto:eof
 )
+
+:: Set global variables for IPaddy and lenIP.   
+:: We use this to initially determine if the VPN is active.
+call :getConnectionIP CONNECTION_NAME IPaddy
+call :strlen lenIP IPaddy
 
 IF [%1] == [echoip] GOTO echo_IP
 IF [%1] == [stop] GOTO vpn_disable
